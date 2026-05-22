@@ -1,8 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { StarField } from "../StarField";
-import { InlineCountdown } from "../InlineCountdown";
-import { getBirthdayTarget } from "@/config/experience";
 
 export function SectionHero() {
   const ref = useRef<HTMLElement>(null);
