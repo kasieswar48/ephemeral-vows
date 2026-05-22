@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { previewMode } from "@/config/experience";
 
 function diff(target: Date) {
   const ms = Math.max(0, target.getTime() - Date.now());
@@ -12,37 +11,41 @@ function diff(target: Date) {
   };
 }
 
-export function InlineCountdown({ target }: { target: Date }) {
+export function InlineCountdown({
+  target,
+  className = "",
+}: {
+  target: Date;
+  className?: string;
+}) {
   const [t, setT] = useState(() => diff(target));
   useEffect(() => {
     const id = setInterval(() => setT(diff(target)), 1000);
     return () => clearInterval(id);
   }, [target]);
 
-  if (previewMode || t.ms === 0) return null;
+  if (t.ms === 0) return null;
 
-  const items = [
+  const parts = [
     { v: t.d, l: "days" },
     { v: t.h, l: "hours" },
     { v: t.m, l: "minutes" },
-    { v: t.s, l: "seconds" },
   ];
 
   return (
-    <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-      {items.map((it, i) => (
-        <div
-          key={it.l}
-          className="glass rounded-full px-4 py-2 sm:px-5 sm:py-2.5 flex items-baseline gap-2"
-        >
-          <span className="font-display text-lg sm:text-xl text-foreground tabular-nums">
-            {it.v.toString().padStart(2, "0")}
+    <div
+      className={`flex items-baseline justify-center gap-3 sm:gap-5 text-foreground/85 ${className}`}
+    >
+      {parts.map((p, i) => (
+        <div key={p.l} className="flex items-baseline gap-2">
+          <span className="font-display text-xl sm:text-2xl font-light tabular-nums text-glow-soft">
+            {p.v.toString().padStart(2, "0")}
           </span>
-          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            {it.l}
+          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
+            {p.l}
           </span>
-          {i < items.length - 1 && (
-            <span className="ml-1 text-muted-foreground/40 hidden sm:inline">·</span>
+          {i < parts.length - 1 && (
+            <span className="ml-1 text-muted-foreground/40">·</span>
           )}
         </div>
       ))}

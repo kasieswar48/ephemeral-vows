@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const points = [
-  { title: "9th standard", note: "The first time your name quietly became familiar." },
+  { title: "In your 9th standard", note: "The first time your name quietly became familiar." },
   { title: "Random conversations", note: "Small conversations that somehow stayed longer than they should have." },
   { title: "Silence", note: "Even distance never fully erased your presence." },
   { title: "Again", note: "Like the universe quietly pulling two paths together again." },

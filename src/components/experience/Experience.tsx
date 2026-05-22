@@ -32,9 +32,7 @@ export function Experience() {
           <SectionTimeline />
           <SectionLetter />
           <SectionFinal />
-          <footer className="py-12 text-center text-[10px] tracking-[0.4em] uppercase text-muted-foreground/70">
-            written quietly · in light
-          </footer>
+          <div className="h-16" />
         </motion.div>
       )}
     </main>
