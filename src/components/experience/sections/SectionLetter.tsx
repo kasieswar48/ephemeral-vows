@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 
 const paragraphs = [
-  "I&apos;ve been trying to write this for a while.",
-  "It&apos;s hard to explain something that never really had a beginning. We didn&apos;t start with a moment. No single day, no obvious reason. You just became familiar. Slowly. Like learning the shape of a constellation you can&apos;t name yet.",
-  "Most of what I know about you lives in small things. The way you type when you&apos;re tired. The things that make you laugh. The silences that never felt awkward. These aren&apos;t memories in the usual sense. They&apos;re just... impressions that stayed.",
-  "I used to believe distance weakens things. That miles somehow subtract from meaning. But you changed that. Because even when there was nothing between us — no messages, no updates, no proof — I still found myself thinking about you. Like gravity. No ceremony. Just pull.",
-  "I don&apos;t know what we are. I&apos;ve stopped trying to name it. Some things don&apos;t need definitions to be real. You don&apos;t ask the moon why it orbits. You just accept that it does.",
-  "So here&apos;s what I want you to know today. Not something dramatic. Just the truth: you matter to me. In a way that time hasn&apos;t erased and distance hasn&apos;t dimmed. That&apos;s rare. I know it&apos;s rare.",
-  "I hope this year brings you quiet joy. The kind that doesn&apos;t need announcing. I hope you find moments that feel like they belong only to you. And I hope, somewhere in all of it, you remember that someone far away is still glad you exist.",
-  "That&apos;s all, really. Just — glad. Like a star that keeps showing up in the same part of the sky. Not because it has to. Because that&apos;s just where it belongs.",
+  "I don&apos;t think you know how naturally you became a part of my life.",
+  "We never really had big moments together. No long walks. No photos. No perfect memories like people usually talk about.",
+  "But still… you stayed in my thoughts. Quietly. Without trying. Without needing a reason.",
+  "Even after distance. Even after silence. Even after life changed so many things between us — somehow, you never really left my heart.",
+  "There were days I didn&apos;t say anything. Days we didn&apos;t talk. Days where everything around me kept moving. But every time my mind slowed down, it always came back to you.",
+  "And honestly, that feeling is rare. To feel peaceful about someone, even from far away — that&apos;s not something you find easily.",
+  "Maybe that&apos;s why I wanted to make this for you. Not to say something big. Not to ask for anything. Just to remind you that somewhere in this huge universe, there&apos;s someone whose day becomes a little softer just by thinking about you.",
+  "You don&apos;t have to do anything with this. Just know it&apos;s here. Quietly. The same way you&apos;ve always been in my heart.",
 ];
 
 export function SectionLetter() {
   return (
-    <section className="relative overflow-hidden px-6 py-40">
+    <section className="relative overflow-hidden px-6 py-32 sm:py-40">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -25,7 +25,7 @@ export function SectionLetter() {
         <p className="mb-14 text-center text-[10px] uppercase tracking-[0.5em] text-muted-foreground">
           iii — the letter
         </p>
-        <div className="space-y-8">
+        <div className="space-y-7">
           {paragraphs.map((l, i) => (
             <motion.p
               key={i}
@@ -36,7 +36,7 @@ export function SectionLetter() {
               className={
                 i === 0
                   ? "font-display text-2xl sm:text-3xl font-light text-foreground/95 leading-[1.5]"
-                  : "text-[15px] sm:text-[17px] text-foreground/80 font-light leading-[2]"
+                  : "text-[15px] sm:text-[17px] text-foreground/80 font-light leading-[1.95]"
               }
               dangerouslySetInnerHTML={{ __html: l }}
             />

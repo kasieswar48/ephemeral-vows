@@ -1,17 +1,11 @@
 // Set previewMode = true to unlock the full experience for development/testing.
-// Set to false to show the inline countdown until May 31st.
-export const previewMode = true;
+// Set to false to enforce the real countdown gate until May 31, 2026.
+export const previewMode = false;
 
 // Her name
 export const herName = "Niha";
 
-// Target birthday — local time. May 31st, current year (auto-rolls).
+// Target birthday — May 31, 2026, 12:00 AM local time.
 export function getBirthdayTarget(): Date {
-  const now = new Date();
-  const year = now.getFullYear();
-  let target = new Date(year, 4, 31, 0, 0, 0, 0);
-  if (target.getTime() < now.getTime() && !previewMode) {
-    target = new Date(year + 1, 4, 31, 0, 0, 0, 0);
-  }
-  return target;
+  return new Date(2026, 4, 31, 0, 0, 0, 0);
 }
