@@ -1,70 +1,80 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { motion } from "framer-motion";
 import { StarField } from "../StarField";
-
-function PaperPlane() {
-  const ref = useRef<THREE.Group>(null);
-  useFrame(({ clock }) => {
-    if (!ref.current) return;
-    const t = clock.elapsedTime;
-    ref.current.position.x = Math.sin(t * 0.4) * 1.2;
-    ref.current.position.y = Math.sin(t * 0.6) * 0.4;
-    ref.current.rotation.z = Math.sin(t * 0.5) * 0.2;
-    ref.current.rotation.y = Math.sin(t * 0.3) * 0.3 + 0.4;
-    ref.current.rotation.x = -0.2 + Math.sin(t * 0.4) * 0.1;
-  });
-  return (
-    <group ref={ref}>
-      {/* Simple paper plane built from triangles */}
-      <mesh>
-        <coneGeometry args={[0.5, 1.4, 4]} />
-        <meshStandardMaterial color="#f5e9f1" emissive="#b88aa8" emissiveIntensity={0.25} roughness={0.6} />
-      </mesh>
-      <mesh position={[0, -0.05, -0.1]} rotation={[0, 0, Math.PI / 4]}>
-        <planeGeometry args={[0.9, 0.9]} />
-        <meshStandardMaterial color="#e9d6e2" side={THREE.DoubleSide} emissive="#996b87" emissiveIntensity={0.15} />
-      </mesh>
-    </group>
-  );
-}
-
-const words = ["We", "never", "really", "met.", "Yet", "somehow,", "you", "stayed."];
+import { herName } from "@/config/experience";
 
 export function SectionBeginning() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-
   return (
-    <section ref={ref} className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6 py-24">
-      <StarField density={0.6} />
-      <div className="absolute inset-0 z-[1] opacity-80">
-        <Canvas camera={{ position: [0, 0, 4], fov: 50 }} dpr={[1, 1.5]}>
-          <ambientLight intensity={0.4} />
-          <pointLight position={[3, 3, 3]} intensity={1.2} color="#f5b8d6" />
-          <pointLight position={[-3, -2, 2]} intensity={0.8} color="#8a6cb8" />
-          <PaperPlane />
-        </Canvas>
+    <section className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6 py-32">
+      <StarField density={0.4} />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(50% 40% at 50% 50%, oklch(0.22 0.05 60 / 0.45), transparent 70%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 0.7, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 1.2 }}
+          className="mb-8 text-[10px] uppercase tracking-[0.5em] text-muted-foreground"
+        >
+          i — the moment
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-light text-foreground text-glow leading-[1.1] text-[2.4rem] sm:text-[4rem]"
+        >
+          Happy Birthday,
+          <br />
+          <span className="bg-gradient-to-r from-[oklch(0.92_0.08_80)] via-[oklch(0.82_0.13_65)] to-[oklch(0.72_0.13_50)] bg-clip-text text-transparent">
+            {herName}.
+          </span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 0.82, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ delay: 0.3, duration: 1.4 }}
+          className="mt-12 text-lg sm:text-xl text-foreground/85 font-display font-light leading-[1.7]"
+        >
+          In this galaxy of temporary things,
+          <br />
+          you became one of the few feelings that stayed.
+        </motion.p>
+
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 1.6 }}
+          className="mx-auto my-12 h-px w-32 origin-center bg-gradient-to-r from-transparent via-foreground/30 to-transparent"
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 0.7, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ delay: 0.8, duration: 1.4 }}
+          className="mx-auto max-w-2xl text-[15px] sm:text-base leading-[2] text-muted-foreground font-light"
+        >
+          Some connections don&apos;t need perfect timing,
+          <br />
+          perfect distance,
+          <br />
+          or even perfect stories.
+          <br />
+          <span className="text-foreground/80">Somehow, they still remain.</span>
+        </motion.p>
       </div>
-      <motion.div style={{ y }} className="relative z-10 max-w-2xl text-center">
-        <p className="mb-6 text-[10px] uppercase tracking-[0.5em] text-muted-foreground">i — the beginning</p>
-        <h2 className="font-display text-4xl sm:text-6xl font-light leading-tight text-foreground">
-          {words.map((w, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-15%" }}
-              transition={{ delay: i * 0.18, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block mr-2"
-            >
-              {w}
-            </motion.span>
-          ))}
-        </h2>
-      </motion.div>
     </section>
   );
 }
