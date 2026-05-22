@@ -118,8 +118,5 @@ export function SectionFinal({ onOpenSurprise }: { onOpenSurprise: () => void })
 }
 
 function ConstellationBridge({ progressRef }: { progressRef: React.MutableRefObject<number> }) {
-  // a tiny adapter so we can read the latest framer value inside r3f loop
-  const dummy = useRef(0);
-  useFrame(() => { dummy.current = progressRef.current; });
-  return <Constellation progress={progressRef.current} />;
+  return <Constellation progressRef={progressRef} />;
 }
