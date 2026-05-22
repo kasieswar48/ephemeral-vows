@@ -46,9 +46,9 @@ export function SectionBeginning() {
           transition={{ delay: 0.3, duration: 1.4 }}
           className="mt-12 text-lg sm:text-xl text-foreground/85 font-display font-light leading-[1.7]"
         >
-          In this galaxy of temporary things,
+          In this endless universe of passing moments,
           <br />
-          you became one of the few feelings that stayed.
+          you became one of the few feelings that quietly stayed.
         </motion.p>
 
         <motion.div
@@ -64,15 +64,15 @@ export function SectionBeginning() {
           whileInView={{ opacity: 0.7, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ delay: 0.8, duration: 1.4 }}
-          className="mx-auto max-w-2xl text-[15px] sm:text-base leading-[2] text-muted-foreground font-light"
+          className="mx-auto max-w-2xl text-[15px] sm:text-base leading-[2.2] text-muted-foreground font-light"
         >
-          Some connections don&apos;t need perfect timing,
+          Maybe not every story is perfect.
           <br />
-          perfect distance,
+          Maybe not every connection arrives at the right time.
           <br />
-          or even perfect stories.
+          But some people still leave a mark on your soul,
           <br />
-          <span className="text-foreground/80">Somehow, they still remain.</span>
+          <span className="text-foreground/80">without even trying.</span>
         </motion.p>
       </div>
     </section>
