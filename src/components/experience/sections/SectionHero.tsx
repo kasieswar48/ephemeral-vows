@@ -13,12 +13,12 @@ export function SectionHero() {
 
   return (
     <section ref={ref} className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6">
-      <StarField density={0.8} />
+      <StarField density={0.6} />
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 40%, oklch(0.30 0.06 60 / 0.35), transparent 70%)",
+            "radial-gradient(60% 50% at 50% 40%, oklch(0.28 0.05 60 / 0.28), transparent 70%)",
         }}
       />
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">

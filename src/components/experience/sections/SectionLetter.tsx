@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
 const paragraphs = [
-  "It&apos;s strange, honestly.",
-  "We never really shared the same places, never built the kind of memories people usually talk about — no long evenings, no familiar streets, no soundtrack of shared days. And yet, somehow, you became part of my everyday thoughts.",
-  "Even silence with you never felt completely empty. There was always something orbiting underneath it — quiet, patient, unspoken.",
-  "Maybe that&apos;s why, no matter how many times life pulled us in different directions, something in me still looked for you again. Like gravity does — without needing a reason, without needing permission.",
-  "I used to think distance was the loudest thing in a connection. But you taught me it&apos;s just space — and even space has light traveling through it.",
-  "I don&apos;t know what we are in the grammar of the world. I don&apos;t think we ever needed to be defined. Some people are not chapters; they are the margin notes you keep rereading.",
-  "So if today is a year you turn, I hope it turns softly. I hope it brings you the kind of stillness you give to everyone else without realising. I hope you feel held, even from far away.",
-  "And wherever the orbits take us next — know that some part of me is still here. Quietly. Like a star you can&apos;t always see, but is, undeniably, there.",
+  "I&apos;ve been trying to write this for a while.",
+  "It&apos;s hard to explain something that never really had a beginning. We didn&apos;t start with a moment. No single day, no obvious reason. You just became familiar. Slowly. Like learning the shape of a constellation you can&apos;t name yet.",
+  "Most of what I know about you lives in small things. The way you type when you&apos;re tired. The things that make you laugh. The silences that never felt awkward. These aren&apos;t memories in the usual sense. They&apos;re just... impressions that stayed.",
+  "I used to believe distance weakens things. That miles somehow subtract from meaning. But you changed that. Because even when there was nothing between us — no messages, no updates, no proof — I still found myself thinking about you. Like gravity. No ceremony. Just pull.",
+  "I don&apos;t know what we are. I&apos;ve stopped trying to name it. Some things don&apos;t need definitions to be real. You don&apos;t ask the moon why it orbits. You just accept that it does.",
+  "So here&apos;s what I want you to know today. Not something dramatic. Just the truth: you matter to me. In a way that time hasn&apos;t erased and distance hasn&apos;t dimmed. That&apos;s rare. I know it&apos;s rare.",
+  "I hope this year brings you quiet joy. The kind that doesn&apos;t need announcing. I hope you find moments that feel like they belong only to you. And I hope, somewhere in all of it, you remember that someone far away is still glad you exist.",
+  "That&apos;s all, really. Just — glad. Like a star that keeps showing up in the same part of the sky. Not because it has to. Because that&apos;s just where it belongs.",
 ];
 
 export function SectionLetter() {
@@ -21,11 +21,11 @@ export function SectionLetter() {
             "radial-gradient(60% 50% at 50% 50%, oklch(0.18 0.04 60 / 0.5), transparent 70%)",
         }}
       />
-      <div className="relative mx-auto max-w-3xl">
+      <div className="relative mx-auto max-w-2xl">
         <p className="mb-14 text-center text-[10px] uppercase tracking-[0.5em] text-muted-foreground">
           iii — the letter
         </p>
-        <div className="space-y-7">
+        <div className="space-y-8">
           {paragraphs.map((l, i) => (
             <motion.p
               key={i}
@@ -36,7 +36,7 @@ export function SectionLetter() {
               className={
                 i === 0
                   ? "font-display text-2xl sm:text-3xl font-light text-foreground/95 leading-[1.5]"
-                  : "text-[15px] sm:text-[17px] text-foreground/85 font-light leading-[1.95]"
+                  : "text-[15px] sm:text-[17px] text-foreground/80 font-light leading-[2]"
               }
               dangerouslySetInnerHTML={{ __html: l }}
             />

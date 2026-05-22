@@ -2,12 +2,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const points = [
-  { title: "9th standard", note: "the year a name first became familiar." },
-  { title: "Random conversations", note: "small messages that meant more than they said." },
-  { title: "Silence", note: "the chapter neither of us wrote, but both kept." },
-  { title: "Again", note: "the soft surprise of you, returning." },
-  { title: "Distance", note: "miles that learned to be quiet, not gone." },
-  { title: "Still here", note: "after everything — still here." },
+  { title: "9th standard", note: "The first time your name quietly became familiar." },
+  { title: "Random conversations", note: "Small conversations that somehow stayed longer than they should have." },
+  { title: "Silence", note: "Even distance never fully erased your presence." },
+  { title: "Again", note: "Like the universe quietly pulling two paths together again." },
+  { title: "Distance", note: "Not every connection disappears just because life creates space." },
+  { title: "Still here", note: "After all the pauses, somehow… still here." },
 ];
 
 function Card({ p, i }: { p: (typeof points)[number]; i: number }) {
