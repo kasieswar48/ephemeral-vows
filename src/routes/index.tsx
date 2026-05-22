@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 const Experience = lazy(() =>
   import("@/components/experience/Experience").then((m) => ({ default: m.Experience })),
@@ -28,9 +28,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <Suspense fallback={<div className="grid min-h-[100svh] place-items-center bg-background text-muted-foreground">…</div>}>
-      <Experience />
+      {mounted ? <Experience /> : <div className="grid min-h-[100svh] place-items-center bg-background" />}
     </Suspense>
   );
 }
