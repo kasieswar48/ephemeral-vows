@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
@@ -48,7 +48,7 @@ function Stars({ count = 1200 }: { count?: number }) {
 }
 
 function ParallaxRig() {
-  const { camera } = useFrameSafe();
+  const { camera } = useThree();
   const target = useRef({ x: 0, y: 0 });
   useFrame(({ mouse }) => {
     target.current.x += (mouse.x * 0.4 - target.current.x) * 0.04;
@@ -58,12 +58,6 @@ function ParallaxRig() {
     camera.lookAt(0, 0, 0);
   });
   return null;
-}
-
-function useFrameSafe() {
-  // helper to access camera through fiber context safely in nested components
-  const { camera } = (require("@react-three/fiber") as typeof import("@react-three/fiber")).useThree();
-  return { camera };
 }
 
 export function StarField({

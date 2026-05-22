@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -81,8 +81,9 @@ export function SectionFinal({ onOpenSurprise }: { onOpenSurprise: () => void })
   const bgOpacity = useTransform(scrollYProgress, [0, 0.4], [0.6, 0]);
 
   const progressRef = useRef(0);
-  // bridge: subscribe and store
-  progress.on("change", (v) => (progressRef.current = v));
+  useMotionValueEvent(progress, "change", (v) => {
+    progressRef.current = v;
+  });
 
   return (
     <section ref={ref} className="relative min-h-[200svh] overflow-hidden">
