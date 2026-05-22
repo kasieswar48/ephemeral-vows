@@ -7,7 +7,6 @@ export function SectionHero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const target = getBirthdayTarget();
 
   return (
     <section ref={ref} className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6">
@@ -56,8 +55,6 @@ export function SectionHero() {
           <br />
           some part of me still found its way back to you.
         </motion.p>
-
-        <InlineCountdown target={target} />
 
         <motion.div
           initial={{ opacity: 0 }}
