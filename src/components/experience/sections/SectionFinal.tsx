@@ -28,7 +28,7 @@ function constellationPoints(): [number, number][] {
   return pts;
 }
 
-function Constellation({ progress }: { progress: number }) {
+function Constellation({ progressRef }: { progressRef: React.MutableRefObject<number> }) {
   const targets = useRef(constellationPoints());
   const ref = useRef<THREE.Points>(null);
   const origins = useRef<Float32Array | null>(null);
@@ -48,7 +48,7 @@ function Constellation({ progress }: { progress: number }) {
     if (!ref.current || !origins.current) return;
     const pos = ref.current.geometry.attributes.position as THREE.BufferAttribute;
     const arr = pos.array as Float32Array;
-    const p = progress;
+    const p = progressRef.current;
     for (let i = 0; i < count; i++) {
       const ox = origins.current[i * 3];
       const oy = origins.current[i * 3 + 1];
