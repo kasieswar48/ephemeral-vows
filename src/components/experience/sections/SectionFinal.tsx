@@ -31,10 +31,10 @@ export function SectionFinal() {
           transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-display font-light text-foreground text-glow leading-[1.15] text-[2rem] sm:text-[3.4rem]"
         >
-          Once again,
+          Once again
           <br />
           <span className="bg-gradient-to-r from-[oklch(0.92_0.08_80)] via-[oklch(0.82_0.13_65)] to-[oklch(0.72_0.13_50)] bg-clip-text text-transparent">
-            Happiest Birthday, {herName}.
+            Happiest Birthday {herName}.
           </span>
         </motion.h2>
 
@@ -69,9 +69,7 @@ export function SectionFinal() {
           transition={{ delay: 1, duration: 1.6 }}
           className="text-xs sm:text-sm italic tracking-wide text-muted-foreground font-light leading-[1.9]"
         >
-          — like the sky above us,
-          <br />
-          I hope we always find our way back to each other.
+          — I hope we always find our way back to each other.
         </motion.p>
       </div>
     </section>
