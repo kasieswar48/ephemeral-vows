@@ -6,7 +6,8 @@ import { getBirthdayTarget, previewMode } from "@/config/experience";
 
 export function EnterGate({ onEnter }: { onEnter: () => void }) {
   const target = getBirthdayTarget();
-  const [unlocked, setUnlocked] = useState(true
+  const [unlocked, setUnlocked] = useState(
+    () => previewMode || Date.now() >= target.getTime(),
   );
 
   useEffect(() => {

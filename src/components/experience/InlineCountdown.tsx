@@ -30,6 +30,7 @@ export function InlineCountdown({
     { v: t.d, l: "days" },
     { v: t.h, l: "hours" },
     { v: t.m, l: "minutes" },
+    { v: t.s, l: "seconds"},
   ];
 
   return (
